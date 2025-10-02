@@ -1,4 +1,9 @@
 import pytest
+
+# First charge the .env file to get the environment variables
+from dotenv import load_dotenv
+load_dotenv()
+
 from backend import app
 
 
@@ -13,13 +18,10 @@ def runner(app):
 
 
 @pytest.fixture()
-def picture():
-    picture = {
+def song():
+    song = {
         "id": 200,
-        "pic_url": "http://dummyimage.com/230x100.png/dddddd/000000",
-        "event_country": "United States",
-        "event_state": "California",
-        "event_city": "Fremont",
-        "event_date": "11/2/2030"
+        "title": "Bohemian Rhapsody",
+        "lyrics": "Bohemian Rhapsody is a song by the British rock band Queen. It was written by Freddie Mercury for the band's debut studio album, A Night at the Opera (1975). The song is a six-minute suite that combines elements of rock, opera, and ballad."
     }
-    return dict(picture)
+    return dict(song)
